@@ -57,7 +57,7 @@ span {
     background-color: red;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    top: 0;
 }
 
 .animate {

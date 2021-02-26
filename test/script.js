@@ -12,8 +12,13 @@ function jump()  {
 var checkeDead = setInterval(() => {
     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue('top'));
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
-    if (blockLeft<260 && blockLeft>240 && characterTop>=130) {
-        alert('perdeu')
+    var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue('top'));
+    if (blockTop == -175 && blockLeft<260 && blockLeft>240 && characterTop == 0) {
+        block.style.animation = 'none'
+        restart()
+    } else if (blockTop == 5 && blockLeft<260 && blockLeft>240 && characterTop == 25) {
+        block.style.animation = 'none'
+        restart()
     }
 }, 10);
 
