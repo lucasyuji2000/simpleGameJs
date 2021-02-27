@@ -1,6 +1,7 @@
 var character = document.getElementById('character');
 var block = document.getElementById('block');
-
+var pontuacao = document.getElementById('pontuacao')
+var pontos = 0;
 function jump()  {
     if(character.classList != 'animate') {
         character.classList.add('animate');
@@ -16,11 +17,16 @@ var checkeDead = setInterval(() => {
     if (blockTop == -175 && blockLeft<260 && blockLeft>240 && characterTop == 0) {
         block.style.animation = 'none'
         restart()
+        clearInterval(checkeDead)
     } else if (blockTop == 5 && blockLeft<260 && blockLeft>240 && characterTop == 25) {
         block.style.animation = 'none'
         restart()
+        clearInterval(checkeDead)
+    } else {
+        pontos+=1
     }
-}, 10);
+    pontuacao.innerHTML = `${pontos} m`
+},1); 
 
 function restart() {
     var span = document.createElement('span')
